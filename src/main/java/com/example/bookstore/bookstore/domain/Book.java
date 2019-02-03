@@ -1,36 +1,45 @@
-package com.example.bookstore.bookstore.web;
+package com.example.bookstore.bookstore.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private String title;
-    private String author;
-    private String isbn;
+    private long id;
+
+    private String titel, author, isbn;
     private int year;
     private double price;
 
-    public Book(){
-        title="";
-        author="";
-        isbn="";
-        year=0;
-        price=0.00;
 
-    }
 
-    public Book(String title, String author, String isbn, int year, double price) {
-        this.title = title;
+    public Book(String titel, String author, String isbn, int year, double price) {
+        this.titel = titel;
         this.author = author;
         this.isbn = isbn;
         this.year = year;
         this.price = price;
     }
 
-    public String getTitle() {
-        return title;
+    public long getId() {
+        return id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitel() {
+        return titel;
+    }
+
+    public void setTitel(String titel) {
+        this.titel = titel;
     }
 
     public String getAuthor() {
